@@ -1,0 +1,39 @@
+
+body{
+    background-color: black;
+    color: #FFF
+}
+
+.search-container{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+} 
+
+.search-container h1{
+    font-size: 40px;
+    text-align: center;
+    padding: 20px 0;
+}
+.search-container .input-area{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.search-container .input-area .search-name-input{
+    width: 198px;
+    padding: 5px 8px;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+.search-container .input-area .search-name-buttom{
+    width: 100px;
+    padding: 5px 8px;
+    margin: 0 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+}
