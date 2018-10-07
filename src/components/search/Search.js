@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import ListCommits from '../list-commits/ListCommits';
-import { request_profile } from "../../actions/fetchAction";
+import { request_profile, request_repositories } from "../../actions/fetchAction";
 import '../commum/css-reset.css'
 import './search.css'
 
@@ -10,10 +10,14 @@ class Search extends Component {
         e.preventDefault();
         const username = this.getUsername.value;
         this.props.dispatch(request_profile(username));
+        this.props.dispatch(request_repositories(username));
         this.getUsername.value = "";
     };
+
+  
     render() {
-        console.log(this.props.data);
+        const { data } = this.props;
+        console.log(data);
         return (
             <div>
                 <div className="search-container">
@@ -33,12 +37,12 @@ class Search extends Component {
                         </form>
                     </div>
                 </div>
-                {this.props.data.isFetching ? <h3>Loading...</h3> : null}
-                {this.props.data.isError ? (
+                {data.isFetching ? <h3>Loading...</h3> : null}
+                {data.isError ? (
                     <h3 className="error">No such User exists.</h3>
                 ) : null}
-                {Object.keys(this.props.data.userData).length > 0 ? (
-                    <ListCommits user={this.props.data.userData} />
+                {Object.keys(data.userData).length > 0  && Object.keys(data.repositoriesData).length > 0 ? (
+                    <ListCommits user={data.userData} repositories={data.repositoriesData} />
                 ) : null}
             </div>
         );

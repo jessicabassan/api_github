@@ -2,6 +2,12 @@ import React from 'react';
 import './ListCommits.css';
 
 const ListCommits = props => {
+    const listRepositories = props.repositories.map((teste) => {
+        return (
+           <p>{teste.name}</p>
+        );
+    });
+    console.log('props.data.repositoriesData', props.repositories)
     return (
         <div className="user-info">
             <div className="content-profile">
@@ -9,7 +15,8 @@ const ListCommits = props => {
                     <img className="avatar-img" src={props.user.avatar_url} alt="avatar" width="250px" />
                 </div>
                 <div className="content">
-                    <h1>{props.user.name}</h1>
+                    <h1>Username: {props.user.login}</h1>
+                    <h2>Name: {props.user.name}</h2>
                     <p>
                         <strong>Bio: </strong>
                         {props.user.bio}
@@ -26,6 +33,7 @@ const ListCommits = props => {
                 </div>
             </div>
             <div className="content-repositories">
+                {listRepositories}
             </div>
         </div>
     );
