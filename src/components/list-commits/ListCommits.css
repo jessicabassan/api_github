@@ -1,0 +1,44 @@
+.user-info {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 40px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.12);
+    margin: 40px;
+  }
+
+  .content-profile{
+      display: flex;
+  }
+
+  .content-profile .avatar {
+    border-right: 1px solid rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .content-profile .avatar .avatar-img{
+    width: 90px;
+    display: flex;
+    align-self: center;
+    margin: 20px;
+  }
+
+  .content-profile .content{
+    padding: 20px;
+    width: 100%;
+  }
+
+  .content-profile .content h1 {
+    font-size: 20px;
+    color: #000;
+  }
+
+  .content-profile .content p {
+    font-size: 15px;
+    color: #000;
+  }
+  .content-repositories{
+      background-color: violet
+  }
+  
