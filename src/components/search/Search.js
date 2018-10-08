@@ -17,7 +17,6 @@ class Search extends Component {
   
     render() {
         const { data } = this.props;
-        console.log(data);
         return (
             <div>
                 <div className="search-container">

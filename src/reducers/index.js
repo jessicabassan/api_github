@@ -1,12 +1,14 @@
 const initialState = {
   userData: {},
   repositoriesData: {},
+  commitsData: {},
   isFetching: false,
   isError: false
 };
 
 const asyncReducer = (state = initialState, action) => {
   switch (action.type) {
+    // PROFILE
     case "FETCH_USER_PROFILE":
       return Object.assign({}, state, {
         userData: {},
@@ -25,7 +27,8 @@ const asyncReducer = (state = initialState, action) => {
         isFetching: false
       });
 
-      case "FETCH_USER_REPOSITORIES":
+    // REPOSITORIES
+    case "FETCH_USER_REPOSITORIES":
       return Object.assign({}, state, {
         repositoriesData: {},
         isFetching: true,
@@ -41,6 +44,25 @@ const asyncReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         isError: true,
         isFetching: false
+      });
+
+    // COMMITS
+    case "FETCH_USER_COMMITS":
+      return Object.assign({}, state, {
+        commitsData: {},
+        commitisFetching: true,
+        commitIsError: false
+      });
+    case "FETCHED_USER_COMMITS":
+      return Object.assign({}, state, {
+        commitsData: action.data,
+        commitisFetching: false,
+        commitIsError: false
+      });
+    case "RECEIVE_ERROR_COMMITS":
+      return Object.assign({}, state, {
+        commitIsError: true,
+        commitisFetching: false
       });
     default:
       return state;

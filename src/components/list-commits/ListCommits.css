@@ -38,7 +38,52 @@
     font-size: 15px;
     color: #000;
   }
-  .content-repositories{
-      background-color: violet
+  .content-infos{
+    display: flex;
+    flex-direction: row;
   }
-  
+  .content-repositories{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 10px 20px;
+    border-right: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+  .content-repositories .view-repository{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+  }
+  .content-repositories .view-repository p{
+    text-transform: uppercase;
+    font-size: 15px;
+    color: #000;
+  }
+  .content-repositories .view-repository button {
+    width: 150px;
+    padding: 5px 5px;
+    margin: 0 15px;
+    border: none;
+    border-radius: 17px;
+    font-size: 15px;
+    color: #fff;
+    background: #000;
+  }
+
+  .content-commits{
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    padding: 10px 20px;
+  }
+  .content-commits h3, p{
+    color: #000
+  }
+
+  .content-commits .commit-detail{
+    border-bottom: 1px solid  rgba(0, 0, 0, 0.12);
+    padding: 10px 0;
+  }

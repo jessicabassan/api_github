@@ -72,3 +72,40 @@ export const request_repositories = username => {
       .catch(err => dispatch(receive_error_repositories()));
   };
 };
+
+//COMMITS
+export const fetch_commits = () => {
+  return {
+    type: "FETCH_USER_COMMITS"
+  };
+};
+
+export const receive_commits = post => {
+  return {
+    type: "FETCHED_USER_COMMITS",
+    data: post
+  };
+};
+
+export const receive_error_commits = () => {
+  return {
+    type: "RECEIVE_ERROR_COMMITS"
+  };
+};
+
+//COMMITS
+export const request_commits = (repositorieName, userLogin) => {
+  const user = userLogin.replace(/\s/g, "");
+  const repo = repositorieName.replace(/\s/g, "");
+  store.dispatch(fetch_commits());
+  return function(dispatch, getState) {
+    return fetch(`https://api.github.com/repos/${repo}/${user}/commits`)    
+      .then(data => data.json())
+      .then(data => {
+        if (data.message === "Not Found") {
+          throw new Error("No such user found!!");
+        } else dispatch(receive_commits(data));
+      })
+      .catch(err => dispatch(receive_error_commits()));
+  };
+};
